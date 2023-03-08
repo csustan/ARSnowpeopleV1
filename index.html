@@ -130,6 +130,15 @@
 			}
 		}
 
+		window.addEventListener('load', function () {
+			arToolkitSource.onResizeElement();
+				arToolkitSource.copyElementSizeTo(renderer.domElement);
+				if (window.arToolkitContext) { //The arToolKitContext is generated in a differnt function, so check that the arToolkitContext is actually on the Window before searching it.
+					if (window.arToolkitContext.arController !== null) {
+						arToolkitSource.copyElementSizeTo(window.arToolkitContext.arController.canvas)
+					}
+				}
+		});
 
 		//Tell AR toolkit to initialise. if it's resized it will match the same as the renderer on the HTML page.
 		arToolkitSource.init(function onReady(){
@@ -311,7 +320,15 @@
 				markerRoot.add( getModel("userModel").children[0] ); //We're just adding the mesh, not the whole scene that's stored in getModel("userModel")
 
 				//add refresh here.
-				onResize();
+				arToolkitSource.onResizeElement();
+				arToolkitSource.copyElementSizeTo(renderer.domElement);
+				if (window.arToolkitContext) { //The arToolKitContext is generated in a differnt function, so check that the arToolkitContext is actually on the Window before searching it.
+					if (window.arToolkitContext.arController !== null) {
+						arToolkitSource.copyElementSizeTo(window.arToolkitContext.arController.canvas)
+					}
+				}
+				
+
 			});
 
 			
