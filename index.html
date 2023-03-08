@@ -27,8 +27,8 @@
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
 <!--
-	Solar System Created by Eric Greenberg using CC0 images from https://www.solarsystemscope.com/textures/ and NASA https://nasa3d.arc.nasa.gov/detail/plu0rss1
-	Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/ and by Lee Stemkoski: https://github.com/stemkoski
+	AR Display Created by Eric Greenberg using CSUStan Fab Lab images.
+ 	Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/ and by Lee Stemkoski: https://github.com/stemkoski
 -->
 
 <script>
@@ -303,13 +303,15 @@
 
 				getModel("userModel").children[0].position.set(0, 0, 0);
 
-				console.log('Test 1 - getModel("userModel"): ');//Test code
-				console.dir(getModel("userModel"));//Test code
-				console.log('Test 1b - getModel("userModel").children[0]: ');//Test code
-				console.dir(getModel("userModel").children[0]);//Test code
+				//console.log('Test 1 - getModel("userModel"): ');//Test code
+				//console.dir(getModel("userModel"));//Test code
+				//console.log('Test 1b - getModel("userModel").children[0]: ');//Test code
+				//console.dir(getModel("userModel").children[0]);//Test code
 
 				markerRoot.add( getModel("userModel").children[0] ); //We're just adding the mesh, not the whole scene that's stored in getModel("userModel")
 
+				//add refresh here.
+				onResize();
 			});
 
 			
